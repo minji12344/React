@@ -5,6 +5,9 @@ import Cycle from './sycle';
 import {Sycle} from './cycle';
 import Compo from './Compo';
 import Lotto from "./lotto";
+import Login from './login';
+import Lotto2 from "./lotto2";
+
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
       <Sycle />
       <Compo / >
       <Lotto / >
+      <Login / >
+      <Lotto2 / >
+
     </div>
   );
 }
