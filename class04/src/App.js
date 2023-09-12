@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Context from './Context';
-import LanguageContext from './Languagetext';
+import Context from '../../class02/src/Context';
+import LanguageContext from '../../class02/src/Languagetext';
 
 
 function App() {
