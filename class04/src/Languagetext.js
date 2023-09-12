@@ -1,10 +1,5 @@
 import React, {createContext, useContext, useState} from 'react';
 
-//<select> onChange={}
-// <option value="en">English</option>
-// <option value="ko">한국어</option>
-//</select>
-
 const LanguageContext = createContext();
 
 function LanguageProvider({children}) {
@@ -16,27 +11,38 @@ function LanguageProvider({children}) {
         //만약 이전 언어가 'en'라면 'ko'로 바꿔줘
     };
 
-    <select> onChange={lang}
-    <option value="en">English</option>
-    <option value="ko">한국어</option>
-    </select>
+    const handleChange = (event) => {
+        setLang(event.target.value);
+    }
 
     return (
-        <LanguageContext.Provider value={{lang}}>
+        <LanguageContext.Provider value={{lang, switchLang, handleChange}}>
             {children}
         </LanguageContext.Provider>
+    );
+}
+
+function SelectLang(){
+    const{lang, handleChange} = useContext(LanguageContext);
+
+    return(
+        <select onChange = {handleChange}>
+            <option value="en">English</option>
+            <option value="ko">한국어</option>
+        </select>
     );
 }
 
 function SayHello() {
     const {lang} = useContext(LanguageContext);
 
-    return <p>{lang === 'en' ? 'Hello' : '안녕하세요'}</p>
+    return <p>{lang === 'en' ? 'Hello' : '안녕하세요'}</p>;
 }
 
 function Language() {
     return (
         <LanguageProvider>
+            <SelectLang/>
             <SayHello/>
         </LanguageProvider>
     );
