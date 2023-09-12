@@ -18,7 +18,6 @@ class Lotto extends React.Component {
     render() {
         return (
             <div>
-            <h2>랜덤뽑기</h2>
             <button onClick={this.handleClick}>
                 {this.state.count}
             </button>

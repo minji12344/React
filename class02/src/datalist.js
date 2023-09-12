@@ -1,34 +1,44 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 
-class DataList extends Component {
-    constructor(props) {
-        super(props)
-        const [iemt, setItems] = useState(['Apple', 'Banana', 'Kiwi']);
-    }
+const ListItem = ({id, text}) => {
+    return <li key={id}>{text}</li>
+};
 
-    addItem(){
-        const addItem = () => {
-            const newItem = prompt('Enter a new item: ');
-            if(newItem) {
-                setItems([items, newItem]);
-            }
-        };
-    }
-    removeItem(){
-        const removeItem = (index) => {
-            const updateItem = items.filter((_, i) => i !== index);
-            setItems(updateItem);
-        };
-    }
-    render(){
-        return(
-            <div>
-                <h2>아이템</h2>
-                <p>배열에 있는 데이터로 리스트 아이템을 생성</p>
-                <form value = {this.removeItem}></form>
-            </div>
-        )
-    }
-}
+const ListSet = ({data}) => {
+    return (
+        <ul>
+            {data.map((item) => (
+                <ListItem key={item.id} id={item.id} text={item.text} />
+            ))}
+        </ul>
+    );
+};
 
-export default DataList;
+const List = () => {
+    const [items, setItem] = useState([
+        {id:1, text:'hello'},
+        {id:2, text:'byebye'},
+    ]);
+
+    const [input, inputValue] = useState('');
+
+    const handleChange = (event) => {
+        inputValue(event.target.value);
+    };
+
+    const handleAdd = () => {
+         const newItem = {id : items.length + 1, text: input};
+         setItem([...items,newItem]);
+         inputValue("");
+    };
+
+    return (
+        <div>
+            <input type="text" value={input} onChange={handleChange}/>
+            <button onClick={handleAdd}> 추가 </button>
+            <ListSet data={items} />
+        </div>
+    )
+};
+
+export default List;

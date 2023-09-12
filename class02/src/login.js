@@ -26,7 +26,6 @@ class Login extends Component {
     render() {
         return(
             <form onSubmit={this.handleSubmit}>
-                <h2>로그인 창</h2>
                 <label>ID:
                     <input type = "text" value={this.state.value} onChange={this.handleChange} />
                 </label>
