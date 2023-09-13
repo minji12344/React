@@ -8,7 +8,9 @@ import Login from './login';
 import Datalist from './datalist';
 import Languagetext from './Languagetext';
 import Context from './Context';
-// import Lotto2 from './lotto2';
+import Lotto2 from './lotto2';
+import Cart from './Cart';
+
 
 function App() {
   return (
@@ -31,6 +33,9 @@ function App() {
       <h2>콘텍스 언어 바꾸기</h2>
       <Languagetext />
       <h2>로또 번호 중복없이</h2>
+      <Lotto2 />
+      <h2>장바구니</h2>
+      <Cart />
 
     </div>
   );
