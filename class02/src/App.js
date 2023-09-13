@@ -11,7 +11,6 @@ import Context from './Context';
 import Lotto2 from './lotto2';
 import Cart from './Cart';
 
-
 function App() {
   return (
     <div>
