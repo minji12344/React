@@ -10,8 +10,16 @@ import Languagetext from './Languagetext';
 import Context from './Context';
 import Lotto2 from './lotto2';
 import Cart from './Cart';
+import Timer from './timer';
+import Page from './page';
 
-function App() {
+function App() {  
+  const data = [
+    {id:1, text:'Hu'},
+    {id:2, text:'He'},
+    {id:3, text:'Ho'},
+]
+const page = 1;
   return (
     <div>
       <h1>Start React 200!</h1>
@@ -35,7 +43,10 @@ function App() {
       <Lotto2 />
       <h2>장바구니</h2>
       <Cart />
-
+      <h2>타이머</h2>
+      <Timer />
+      <h2>페이지 넘기기</h2>
+      <Page data = {data} itemsPerPage = {page} />
     </div>
   );
 }
