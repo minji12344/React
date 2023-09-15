@@ -1,0 +1,9 @@
+.button {
+    background-color: pink;
+    color: purple;
+    padding: 10px;
+}
+
+.button:hover{
+    background-color: rgb(206, 168, 250);
+}
